@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="box" id="heading">
+        <h1> Shopping cart</h1>
+    </div>
+
+    <div class="box">
+        <% for(let i = 0; i<newListDB.length;i++) {%>
+
+        <div class="item">
+            <p><%= newListDB[i] %> </p> <br>
+        </div>
+        <%}%>
+
+    </div>
+    <!-- <ul> -->
+
+        <!-- <li><%= newListDB %> </li> -->
+        <!-- <li><%= r.title , r.format %> </li>
+        <li><%= r.title , r.format %> </li> -->
+        <!-- <% for (var i = 0; i < r.length; i++ ) { %>
+            <li> <%= r[i].ISBN10 %> </li>
+            <li> <%= r[i].title %> </li>
+        <% } %>   -->
+        <!-- </ul> -->
+
+
+
+        <form action="/" method="post">
+
+            <div>
+
+                <b>Number of rows: </b> <%= r.length%> <br><br>
+                <% if (r.length > 0)   { %>
+                <table border="0">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+
+                    <tr>
+                        <th>Title</th>
+                        <th>Authors</th>
+                        <th>ISBN10</th>
+                    </tr>
+                    <% r.forEach((book) => { %>
+                    <tr>
+                        <td><%= book.title %></td>
+                        <td><%= book.authors %></td>
+                        <td><%= book.ISBN10 %></td>
+
+                        <!-- <td> <input type="checkbox" name="item1" value=<%= book.ISBN10 %>> </td> -->
+                        <td> <input type="checkbox" name="item1" value=<%= book.title %>> </td>
+
+                        <td> <button type="submit" name="button"> ADD </button> <br> </td>
+                    </tr>
+                    <% }) %>
+                </table>
+                <% } %>
+
+            </div>
+
+
+        </form>
+
+
+</body>
+
+</html>
